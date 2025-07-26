@@ -12,7 +12,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Enhanced Custom CSS
+# Enhanced Custom CSS with better readability
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -28,158 +28,266 @@ st.markdown("""
         }
         
         .hero-section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         .comparison-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
             border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
         .comparison-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
         }
         
         .traditional-card {
-            border-left: 5px solid #ff6b6b;
+            border-left: 6px solid #e74c3c;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(231, 76, 60, 0.05) 100%);
         }
         
         .ai-card {
-            border-left: 5px solid #4ecdc4;
+            border-left: 6px solid #2ecc71;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(46, 204, 113, 0.05) 100%);
         }
         
         h1 {
-            color: #2c3e50;
-            font-weight: 700;
+            color: #1a252f !important;
+            font-weight: 700 !important;
             text-align: center;
             margin-bottom: 0.5rem;
+            font-size: 2.5rem !important;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
         
         h2 {
-            color: #34495e;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            color: #2c3e50 !important;
+            font-weight: 600 !important;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem !important;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         
         h3 {
-            color: #2c3e50;
-            font-weight: 500;
+            color: #1a252f !important;
+            font-weight: 600 !important;
+            font-size: 1.4rem !important;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            color: #2c3e50 !important;
+            font-weight: 500 !important;
+            font-size: 1.1rem !important;
         }
         
         .metric-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
-            padding: 1rem;
-            border-radius: 10px;
+            padding: 1.5rem;
+            border-radius: 12px;
             text-align: center;
             margin: 0.5rem 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .metric-card h2 {
+            color: #fff !important;
+            font-size: 2.2rem !important;
+            margin: 0.5rem 0 !important;
+            text-shadow: none !important;
+        }
+        
+        .metric-card h3 {
+            color: #ecf0f1 !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 0.5rem !important;
+            text-shadow: none !important;
+        }
+        
+        .metric-card h4 {
+            color: #ecf0f1 !important;
+            font-size: 0.9rem !important;
+            margin-bottom: 0.5rem !important;
+            text-shadow: none !important;
         }
         
         .step-indicator {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(52, 73, 94, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
         }
         
         .step-number {
-            background: #667eea;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
             color: white;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            margin-right: 1rem;
+            margin-right: 1.5rem;
+            font-size: 1.2rem;
+            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        .step-indicator strong {
+            color: #1a252f !important;
+            font-size: 1.2rem;
+        }
+        
+        .step-indicator small {
+            color: #34495e !important;
+            font-size: 0.9rem;
         }
         
         .stTextInput > div > div > input {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            border: 2px solid #e0e6ed;
-            font-size: 16px;
-            padding: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border-radius: 12px !important;
+            border: 2px solid #bdc3c7 !important;
+            font-size: 16px !important;
+            padding: 1rem !important;
+            color: #2c3e50 !important;
         }
         
         .stTextInput > div > div > input:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #3498db !important;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2) !important;
         }
         
         .stButton > button {
-            border-radius: 10px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            border-radius: 12px !important;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%) !important;
+            color: white !important;
+            border: none !important;
+            padding: 1rem 2rem !important;
+            font-weight: 600 !important;
+            font-size: 1rem !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3) !important;
         }
         
         .stButton > button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px) !important;
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4) !important;
         }
         
         .chat-message {
-            background: rgba(102, 126, 234, 0.1);
-            border-radius: 10px;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-left: 4px solid #667eea;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(52, 152, 219, 0.05) 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chat-message strong {
+            color: #1a252f !important;
+            font-size: 1.1rem;
         }
         
         .ai-response {
-            background: rgba(78, 205, 196, 0.1);
-            border-radius: 10px;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-left: 4px solid #4ecdc4;
+            background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, rgba(46, 204, 113, 0.05) 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #2ecc71;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .ai-response strong {
+            color: #1a252f !important;
+            font-size: 1.1rem;
         }
         
         .feature-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
         
         .feature-item {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 1rem;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-item strong {
+            color: #1a252f !important;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0.5rem;
         }
         
         .vs-divider {
             text-align: center;
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: bold;
-            color: #667eea;
-            margin: 2rem 0;
+            color: #fff;
+            margin: 3rem 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #e74c3c 0%, #3498db 50%, #2ecc71 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .final-cta {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 3rem;
+            border-radius: 20px;
             text-align: center;
-            margin-top: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .final-cta h2 {
+            color: #fff !important;
+            font-size: 2.2rem !important;
+            margin-bottom: 1rem !important;
+            text-shadow: none !important;
+        }
+        
+        .final-cta h3 {
+            color: #ecf0f1 !important;
+            font-size: 1.6rem !important;
+            margin-bottom: 1.5rem !important;
+            text-shadow: none !important;
+        }
+        
+        .final-cta p {
+            color: #bdc3c7 !important;
+            line-height: 1.6;
         }
         
         .animated-icon {
@@ -197,6 +305,78 @@ st.markdown("""
                 transform: translateY(-5px);
             }
         }
+        
+        /* Streamlit specific overrides */
+        .stExpander > div > div > div > div {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+        }
+        
+        .stExpander label {
+            color: #1a252f !important;
+            font-weight: 600 !important;
+            font-size: 1.1rem !important;
+        }
+        
+        .stSelectbox label {
+            color: #1a252f !important;
+            font-weight: 600 !important;
+        }
+        
+        .stSelectbox > div > div > div {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border: 2px solid #bdc3c7 !important;
+            border-radius: 12px !important;
+        }
+        
+        .stDataFrame {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            border-radius: 12px !important;
+        }
+        
+        /* Make all text in dataframes more readable */
+        .stDataFrame table {
+            background-color: rgba(255, 255, 255, 0.98) !important;
+        }
+        
+        .stDataFrame th {
+            background-color: #34495e !important;
+            color: white !important;
+            font-weight: 600 !important;
+        }
+        
+        .stDataFrame td {
+            color: #2c3e50 !important;
+        }
+        
+        /* Progress bar styling */
+        .stProgress > div > div > div > div {
+            background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%) !important;
+        }
+        
+        /* Success/Warning/Error message styling */
+        .stSuccess {
+            background-color: rgba(46, 204, 113, 0.15) !important;
+            border-left: 5px solid #2ecc71 !important;
+            border-radius: 10px !important;
+        }
+        
+        .stWarning {
+            background-color: rgba(241, 196, 15, 0.15) !important;
+            border-left: 5px solid #f1c40f !important;
+            border-radius: 10px !important;
+        }
+        
+        .stError {
+            background-color: rgba(231, 76, 60, 0.15) !important;
+            border-left: 5px solid #e74c3c !important;
+            border-radius: 10px !important;
+        }
+        
+        .stInfo {
+            background-color: rgba(52, 152, 219, 0.15) !important;
+            border-left: 5px solid #3498db !important;
+            border-radius: 10px !important;
+        }
     </style>
 """, unsafe_allow_html=True)
 
@@ -204,7 +384,7 @@ st.markdown("""
 st.markdown("""
 <div class="hero-section">
     <h1>🧠 Field Force Intelligence – System of Work vs Traditional CRM</h1>
-    <p style="text-align: center; font-size: 1.2rem; color: #7f8c8d; margin-bottom: 0;">
+    <p style="text-align: center; font-size: 1.3rem; color: #34495e; margin-bottom: 0; font-weight: 500;">
         Experience the future of pharmaceutical field force management
     </p>
 </div>
@@ -559,94 +739,3 @@ with col2:
                 • Schedule Dr. Anitha's patient transition timeline
             </div>
             """, unsafe_allow_html=True)
-
-# VS Divider
-st.markdown('<div class="vs-divider">⚡ VS ⚡</div>', unsafe_allow_html=True)
-
-# Final Comparison Section
-st.markdown("""
-<div class="comparison-card">
-    <h2 style="text-align: center;">🎯 The Transformation</h2>
-</div>
-""", unsafe_allow_html=True)
-
-col_final1, col_final2 = st.columns([1, 1], gap="large")
-
-with col_final1:
-    st.markdown("""
-    <div class="comparison-card traditional-card">
-        <h3>📉 Traditional CRM Workflow</h3>
-        <div class="feature-list">
-            <div class="feature-item">
-                <strong>⏱️ Time Investment</strong><br>
-                2-3 hours daily on admin tasks
-            </div>
-            <div class="feature-item">
-                <strong>📊 Data Quality</strong><br>
-                Static, outdated information
-            </div>
-            <div class="feature-item">
-                <strong>🎯 Personalization</strong><br>
-                Generic, one-size-fits-all
-            </div>
-            <div class="feature-item">
-                <strong>📈 Success Rate</strong><br>
-                ~60% meeting acceptance
-            </div>
-            <div class="feature-item">
-                <strong>🧠 Learning</strong><br>
-                Manual, inconsistent
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-with col_final2:
-    st.markdown("""
-    <div class="comparison-card ai-card">
-        <h3>🚀 AI Field Force Intelligence</h3>
-        <div class="feature-list">
-            <div class="feature-item">
-                <strong>⚡ Time Investment</strong><br>
-                15 minutes for full day planning
-            </div>
-            <div class="feature-item">
-                <strong>🔄 Data Quality</strong><br>
-                Real-time, contextual insights
-            </div>
-            <div class="feature-item">
-                <strong>🎨 Personalization</strong><br>
-                Custom for each interaction
-            </div>
-            <div class="feature-item">
-                <strong>📊 Success Rate</strong><br>
-                ~94% meeting acceptance
-            </div>
-            <div class="feature-item">
-                <strong>🤖 Learning</strong><br>
-                Continuous AI optimization
-            </div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-# Call to Action
-st.markdown("""
-<div class="final-cta">
-    <h2 class="animated-icon">🧠 This is More Than Automation</h2>
-    <h3>This is a System of Work</h3>
-    <p style="font-size: 1.1rem; margin: 1rem 0;">
-        You didn't run reports. You didn't search files. You didn't spend hours planning.<br>
-        <strong>You just worked — and the system worked with you.</strong>
-    </p>
-    <p style="font-size: 1.2rem; font-weight: 600;">
-        Built with MCP (Model Context Protocol) for seamless AI integration
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
-# Interactive Demo Stats
-if st.session_state.get('demo_step', 0) > 0:
-    st.sidebar.markdown("### Demo Progress")
-    st.sidebar.progress(st.session_state.demo_step / 10)
-    st.sidebar.markdown(f"Steps completed: {st.session_state.demo_step}/10")
