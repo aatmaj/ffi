@@ -2,7 +2,6 @@ import streamlit as st
 from datetime import datetime
 import pandas as pd
 import numpy as np
-import plotly.express as px
 import time
 
 # Page configuration
@@ -405,29 +404,25 @@ with col2:
         
         # Sample map data
         if st.button("🗺️ Show Optimized Route", key="show_route"):
-            # Create sample route visualization
+            # Create sample route visualization using Streamlit's built-in map
             map_data = pd.DataFrame({
                 'lat': [12.9716, 12.9342, 12.9698],
                 'lon': [77.5946, 77.6101, 77.5946],
-                'doctor': ['Dr. Mehta', 'Dr. Ramesh', 'Dr. Anitha'],
-                'priority': [1, 2, 3],
-                'estimated_time': ['10:30 AM', '2:00 PM', '4:30 PM']
             })
             
-            fig = px.scatter_mapbox(
-                map_data, 
-                lat="lat", 
-                lon="lon", 
-                hover_name="doctor",
-                hover_data=["priority", "estimated_time"],
-                color="priority",
-                size_max=15,
-                zoom=11,
-                height=300
-            )
-            fig.update_layout(mapbox_style="open-street-map")
-            fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
-            st.plotly_chart(fig, use_container_width=True)
+            st.map(map_data, zoom=11, use_container_width=True)
+            
+            # Show route details
+            st.markdown("""
+            <div class="ai-response">
+                🗺️ <strong>Optimized Route Details:</strong><br><br>
+                <strong>📍 Stop 1:</strong> Dr. Mehta (10:30 AM) - 15 min visit<br>
+                <strong>📍 Stop 2:</strong> Dr. Ramesh (2:00 PM) - 20 min visit<br>  
+                <strong>📍 Stop 3:</strong> Dr. Anitha (4:30 PM) - 25 min visit<br><br>
+                <strong>🚗 Total Travel Time:</strong> 2.3 hours<br>
+                <strong>⚡ Time Saved:</strong> 1.2 hours vs manual routing
+            </div>
+            """, unsafe_allow_html=True)
         
         # Show key insights
         col2a, col2b = st.columns(2)
